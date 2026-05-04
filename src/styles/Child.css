@@ -1,18 +1,18 @@
 .fix-box {
-  width: 250px;
-  height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 30px;
-  cursor: pointer;
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    border: 1px white dotted;
+    border-radius: 5px;
 }
 
-.subheading {
-  margin: 0;
-  font-size: 1.8rem;
-  color: white;
-  font-weight: bold;
+#master{
+    border-radius: 5px;
+    border: 2px white ridge;
+    width: 100%;
+}
+
+.subheading{
+    color: white;
+    text-align: center;
 }
