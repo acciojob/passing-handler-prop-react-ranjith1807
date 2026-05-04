@@ -3,7 +3,7 @@ import '../styles/Child.css'
 import '../styles/App.css'
 const ColourSelector = (props) => {
   const { config, selectNextBackground } = props;
-  const { background, classname, label } = config;
+  const { background, classname, label,key } = config;
 
   return (
     <button
