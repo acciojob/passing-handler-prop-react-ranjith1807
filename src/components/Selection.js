@@ -1,19 +1,22 @@
+import React, { useState } from "react";
+import "../styles/Child.css"
 
-import React, { useState } from 'react';
+const Selection = ({ nextBackground }) => {
+  const [bg, setBg] = useState("");
 
-const Selection = ({ applyColor }) => {
-
-  const [selectionStyle, updateSelectionStyle] = useState({ background: "" });
+  const applyColor = () => {
+    setBg(nextBackground);
+  };
 
   return (
     <div 
       className="fix-box" 
-      style={selectionStyle} 
-      onClick={() => applyColor(updateSelectionStyle)}
+      style={{ backgroundColor: bg }} 
+      onClick={applyColor}
     >
       <h2 className="subheading">Selection</h2>
     </div>
   );
-}
+};
 
 export default Selection;

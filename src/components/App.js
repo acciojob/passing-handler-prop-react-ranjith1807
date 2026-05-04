@@ -1,55 +1,39 @@
 import React, { useState } from "react";
-import '../styles/App.css';
-import Selection from './Selection';
-import ColourSelector from './ColourSelector';
+import ColourSelector from "./ColourSelector";
+import Selection from "./Selection";
+import "../styles/App.css";
+import "../styles/Child.css"
 
-const colourConfig = [{
-    key: 'blue',
-    label: 'Blue',
-    classname: 'btn-blue',
-    background: 'rgb(34, 193, 195)'
-  }, {
-    key: 'orange',
-    label: 'Orange',
-    classname: 'btn-orange',
-    background: 'rgb(221, 112, 18)'
-  }, {
-    key: 'green',
-    label: 'Green',
-    classname: 'btn-green',
-    background: 'rgb(44, 209, 88)'
-  }
-]
-
-const title = 'Select the gradient and then the Box to change the color';
+const colors = [
+  { hex: "#32C0C6", name: "Blue" },
+  { hex: "#E1701A", name: "Orange" },
+  { hex: "#2CD158", name: "Green" },
+];
 
 const App = () => {
-  let [nextBackground, selectNextBackground] = useState({ background: "" })
-  
-  const applyColor = (updateSelectionStyle) => {
-    updateSelectionStyle(nextBackground)
-  }
+  const [nextBackground, setNextBackground] = useState("");
 
   return (
     <div id="master">
-      {/* Displaying the title here */}
-      <h5 className="heading">{title}</h5>
-
+      <h5 className="heading">Select the gradient and then the Box to change the color</h5>
+      
       <div className="row">
-        {colourConfig.map((config, index) => (
-          <ColourSelector key={config.key} config={config} selectNextBackground={selectNextBackground} />
+        {colors.map((color) => (
+          <ColourSelector 
+            key={color.name} 
+            color={color} 
+            setNextBackground={setNextBackground} 
+          />
         ))}
       </div>
 
-      <div className='row' id="children-wrapper">
-        {
-          ["selection1", "selection2", "selection3"].map(key => (
-            <Selection key={key} applyColor={applyColor} />
-          ))
-        }
+      <div className="row" id="children-wrapper">
+        <Selection nextBackground={nextBackground} />
+        <Selection nextBackground={nextBackground} />
+        <Selection nextBackground={nextBackground} />
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
 export default App;
