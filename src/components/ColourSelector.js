@@ -8,6 +8,7 @@ const ColourSelector = (props) => {
   return (
     <button
       className={classname}
+      data-testid={key}
       onClick={() => selectNextBackground({ background: background })}
     >
       {label}
